@@ -83,6 +83,27 @@ const About = () => {
                     launch their careers in web development, providing them with both technical 
                     skills and industry insights.
                   </p>
+                  <div className="flex gap-4 mt-6">
+                    <a 
+                      href="https://www.linkedin.com/in/ali-husnain-790929252/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-gradient-primary text-primary-foreground rounded-lg hover:scale-105 hover:shadow-glow transition-all duration-300 text-sm font-medium"
+                    >
+                      LinkedIn Profile
+                    </a>
+                    <a 
+                      href="https://github.com/Alihusnain1489" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 border border-accent/20 text-accent rounded-lg hover:scale-105 hover:bg-accent/5 transition-all duration-300 text-sm font-medium"
+                    >
+                      GitHub
+                    </a>
+                    <button className="px-4 py-2 border border-accent/20 text-accent rounded-lg hover:scale-105 hover:bg-accent/5 transition-all duration-300 text-sm font-medium">
+                      Download CV
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -19,13 +19,13 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "ali.husnain@alif.dev",
+      value: "mr.alihusnain11@gmail.com",
       description: "Send me an email anytime"
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+92 XXX XXXXXXX",
+      value: "0326-1052244",
       description: "Available Mon-Fri 9AM-6PM"
     },
     {
