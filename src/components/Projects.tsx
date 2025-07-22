@@ -107,11 +107,11 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gradient-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-slide-down">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent hover:animate-bounce-subtle cursor-default">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A showcase of real-world applications demonstrating expertise in modern web development, 
             full-stack solutions, and scalable architecture.
           </p>
@@ -121,8 +121,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={project.title}
-              className="group fluid-hover fluid-glow animate-zoom-in overflow-hidden interactive-element hover:scale-[1.02] border-accent/20"
-              style={{animationDelay: `${index * 0.15}s`}}
+              className="group hover:shadow-glow transition-all duration-700 border-accent/20 animate-scale-in overflow-hidden hover:scale-[1.02]"
+              style={{animationDelay: `${index * 0.1}s`}}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -131,9 +131,9 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-primary/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                  <div className="text-primary-foreground text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 animate-fade-in">
-                    <project.icon className="w-8 h-8 mx-auto mb-2 animate-float-medium group-hover:animate-bounce-subtle" />
+                <div className="absolute inset-0 bg-gradient-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <div className="text-primary-foreground text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <project.icon className="w-8 h-8 mx-auto mb-2 animate-float" />
                     <p className="text-sm font-medium">View Project Details</p>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ const Projects = () => {
                     {project.category}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl group-hover:text-accent transition-all duration-300 hover:scale-105 transform cursor-default">
+                <CardTitle className="text-xl group-hover:text-accent transition-colors duration-300 hover:scale-105 transform">
                   {project.title}
                 </CardTitle>
                 <CardDescription className="text-muted-foreground leading-relaxed">
@@ -158,16 +158,16 @@ const Projects = () => {
                 <div>
                   <h4 className="font-semibold mb-3 text-accent">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
-                     {project.technologies.map((tech, techIndex) => (
-                       <Badge 
-                         key={tech} 
-                         variant="outline" 
-                         className="hover:bg-accent/10 hover:scale-105 fluid-hover hover:border-accent animate-slide-up"
-                         style={{animationDelay: `${(index * 4 + techIndex) * 0.05}s`}}
-                       >
-                         {tech}
-                       </Badge>
-                     ))}
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge 
+                        key={tech} 
+                        variant="outline" 
+                        className="hover:bg-accent/10 hover:scale-105 transition-all duration-300 hover:border-accent"
+                        style={{animationDelay: `${techIndex * 0.1}s`}}
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
 
@@ -175,16 +175,15 @@ const Projects = () => {
                 <div>
                   <h4 className="font-semibold mb-3 text-accent">Key Features:</h4>
                   <ul className="space-y-2">
-                     {project.features.map((feature, featureIndex) => (
-                       <li 
-                         key={featureIndex} 
-                         className="flex items-start gap-3 text-muted-foreground hover:text-foreground fluid-hover animate-slide-left"
-                         style={{animationDelay: `${(index * 4 + featureIndex) * 0.05}s`}}
-                       >
-                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0 animate-pulse-glow"></div>
-                         <span>{feature}</span>
-                       </li>
-                     ))}
+                    {project.features.map((feature, featureIndex) => (
+                      <li 
+                        key={featureIndex} 
+                        className="flex items-start gap-3 text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -192,38 +191,38 @@ const Projects = () => {
                 <div>
                   <h4 className="font-semibold mb-3 text-accent">Project Impact:</h4>
                   <div className="grid grid-cols-3 gap-4 text-center">
-                     {Object.entries(project.metrics).map(([key, value], metricIndex) => (
-                       <div 
-                         key={key}
-                         className="bg-accent/5 p-2 rounded-lg hover:bg-accent/10 fluid-hover fluid-scale animate-zoom-in"
-                         style={{animationDelay: `${(index * 4 + metricIndex) * 0.05}s`}}
-                       >
-                         <div className="font-semibold text-accent text-sm">{value}</div>
-                         <div className="text-xs text-muted-foreground capitalize">{key}</div>
-                       </div>
-                     ))}
+                    {Object.entries(project.metrics).map(([key, value], metricIndex) => (
+                      <div 
+                        key={key}
+                        className="bg-accent/5 p-2 rounded-lg hover:bg-accent/10 transition-colors duration-300 hover:scale-105 transform"
+                        style={{animationDelay: `${metricIndex * 0.1}s`}}
+                      >
+                        <div className="font-semibold text-accent text-sm">{value}</div>
+                        <div className="text-xs text-muted-foreground capitalize">{key}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                 <div className="flex gap-3 pt-4">
-                   <Button 
-                     variant="gradient" 
-                     size="sm" 
-                     className="group flex-1 fluid-scale hover:animate-pulse-glow transition-all duration-500"
-                   >
-                     <ExternalLink className="w-4 h-4 mr-2 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
-                     View Live
-                   </Button>
-                   <Button 
-                     variant="outline" 
-                     size="sm"
-                     className="group fluid-scale hover:border-accent hover:text-accent transition-all duration-500"
-                   >
-                     <Github className="w-4 h-4 mr-2 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" />
-                     Code
-                   </Button>
-                 </div>
+                <div className="flex gap-3 pt-4">
+                  <Button 
+                    variant="gradient" 
+                    size="sm" 
+                    className="group flex-1 hover:scale-105 transition-transform duration-300"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                    View Live
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="group hover:scale-105 transition-transform duration-300"
+                  >
+                    <Github className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                    Code
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
