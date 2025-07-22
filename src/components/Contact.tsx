@@ -48,11 +48,11 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+        <div className="text-center mb-16 animate-slide-down">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent hover:animate-bounce-subtle cursor-default">
             Let's Work Together
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
             Ready to bring your ideas to life? Get in touch to discuss your project 
             or explore mentorship opportunities.
           </p>
@@ -65,13 +65,13 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <Card 
                 key={info.title}
-                className="group hover:shadow-glow transition-all duration-500 animate-scale-in border-accent/20"
+                className="group fluid-hover fluid-glow animate-slide-left border-accent/20 interactive-element"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <info.icon className="w-6 h-6 text-primary-foreground" />
+                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:animate-bounce-subtle transition-transform duration-300">
+                      <info.icon className="w-6 h-6 text-primary-foreground group-hover:animate-wiggle" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1">{info.title}</h3>
@@ -84,10 +84,10 @@ const Contact = () => {
             ))}
 
             {/* Availability Status */}
-            <Card className="border-accent/20 animate-scale-in" style={{animationDelay: '0.3s'}}>
+            <Card className="border-accent/20 animate-slide-left fluid-hover interactive-element" style={{animationDelay: '0.3s'}}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Clock className="w-5 h-5 text-accent" />
+                  <Clock className="w-5 h-5 text-accent animate-bounce-subtle" />
                   Service Availability
                 </CardTitle>
               </CardHeader>
@@ -118,10 +118,10 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="border-accent/20 hover:shadow-glow transition-all duration-500 animate-scale-in" style={{animationDelay: '0.2s'}}>
+            <Card className="border-accent/20 fluid-hover fluid-glow animate-slide-right interactive-element" style={{animationDelay: '0.2s'}}>
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-2">
-                  <MessageCircle className="w-6 h-6 text-accent" />
+                  <MessageCircle className="w-6 h-6 text-accent animate-bounce-subtle" />
                   Start a Conversation
                 </CardTitle>
                 <CardDescription className="text-base">
@@ -196,18 +196,18 @@ const Contact = () => {
                       type="submit" 
                       variant="gradient" 
                       size="lg" 
-                      className="group flex-1"
+                      className="group flex-1 fluid-scale hover:animate-pulse-glow transition-all duration-500"
                     >
-                      <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      <Send className="w-4 h-4 mr-2 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300" />
                       Send Message
                     </Button>
                     <Button 
                       type="button" 
                       variant="outline" 
                       size="lg"
-                      className="group"
+                      className="group fluid-scale hover:border-accent hover:text-accent transition-all duration-500"
                     >
-                      <Calendar className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                      <Calendar className="w-4 h-4 mr-2 group-hover:scale-110 group-hover:animate-bounce-subtle transition-all duration-300" />
                       Schedule Call
                     </Button>
                   </div>
@@ -218,9 +218,9 @@ const Contact = () => {
         </div>
 
         {/* Response Promise */}
-        <div className="mt-12 text-center animate-fade-in" style={{animationDelay: '0.4s'}}>
-          <div className="bg-gradient-primary/5 border border-accent/20 rounded-lg p-6 max-w-2xl mx-auto">
-            <h3 className="font-semibold text-lg mb-2 text-accent">Response Commitment</h3>
+        <div className="mt-12 text-center animate-slide-up" style={{animationDelay: '0.4s'}}>
+          <div className="bg-gradient-primary/5 border border-accent/20 rounded-lg p-6 max-w-2xl mx-auto fluid-hover fluid-glow">
+            <h3 className="font-semibold text-lg mb-2 text-accent hover:animate-wiggle cursor-default">Response Commitment</h3>
             <p className="text-muted-foreground">
               I personally review every message and strive to respond within 24 hours during business days. 
               For urgent matters, please indicate in your message and I'll prioritize accordingly.

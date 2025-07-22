@@ -37,12 +37,12 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 animate-slide-left">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <Code className="w-5 h-5 text-primary-foreground" />
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center hover:animate-bounce-subtle transition-transform duration-300">
+                <Code className="w-5 h-5 text-primary-foreground hover:animate-wiggle" />
               </div>
-              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:animate-bounce-subtle cursor-default">
                 Alif
               </h3>
             </div>
@@ -51,27 +51,28 @@ const Footer = () => {
               with cutting-edge technologies and industry best practices.
             </p>
             <div className="flex gap-3">
-              <Button variant="ghost" size="icon" className="hover:bg-accent/20">
-                <Github className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-accent/20 fluid-scale group">
+                <Github className="w-5 h-5 group-hover:animate-wiggle" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-accent/20">
-                <Linkedin className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-accent/20 fluid-scale group">
+                <Linkedin className="w-5 h-5 group-hover:animate-wiggle" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-accent/20">
-                <Mail className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-accent/20 fluid-scale group">
+                <Mail className="w-5 h-5 group-hover:animate-wiggle" />
               </Button>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="animate-slide-up" style={{animationDelay: '0.1s'}}>
             <h4 className="font-semibold text-lg mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
+              {quickLinks.map((link, index) => (
                 <li key={link.name}>
                   <button 
                     onClick={() => document.getElementById(link.href.slice(1))?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 text-left"
+                    className="text-muted-foreground hover:text-accent fluid-hover text-left animate-slide-left"
+                    style={{animationDelay: `${0.2 + index * 0.1}s`}}
                   >
                     {link.name}
                   </button>
@@ -81,12 +82,13 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
             <h4 className="font-semibold text-lg mb-4 text-foreground">Services</h4>
             <ul className="space-y-3">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <li key={service}>
-                  <span className="text-muted-foreground">
+                  <span className="text-muted-foreground hover:text-foreground fluid-hover animate-slide-left"
+                        style={{animationDelay: `${0.3 + index * 0.1}s`}}>
                     {service}
                   </span>
                 </li>
@@ -95,7 +97,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="animate-slide-right" style={{animationDelay: '0.3s'}}>
             <h4 className="font-semibold text-lg mb-4 text-foreground">Get In Touch</h4>
             <div className="space-y-3 text-muted-foreground">
               <p>
@@ -122,7 +124,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <span>© {currentYear} Alif. Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-current" />
+            <Heart className="w-4 h-4 text-red-500 fill-current animate-heartbeat" />
             <span>by Ali Husnain</span>
           </div>
           
@@ -134,9 +136,9 @@ const Footer = () => {
               variant="ghost" 
               size="icon" 
               onClick={scrollToTop}
-              className="hover:bg-accent/20 group"
+              className="hover:bg-accent/20 group fluid-scale"
             >
-              <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
+              <ArrowUp className="w-4 h-4 group-hover:-translate-y-2 group-hover:animate-bounce-subtle transition-all duration-300" />
             </Button>
           </div>
         </div>

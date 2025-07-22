@@ -35,11 +35,11 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gradient-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+        <div className="text-center mb-16 animate-slide-down">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent hover:animate-bounce-subtle cursor-default">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.2s'}}>
             Comprehensive development solutions from concept to deployment, 
             backed by modern technologies and industry best practices.
           </p>
@@ -47,10 +47,10 @@ const Services = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Frontend Development */}
-          <Card className="group hover:shadow-glow transition-all duration-500 animate-scale-in border-accent/20">
+          <Card className="group fluid-hover fluid-glow animate-slide-left border-accent/20 interactive-element">
             <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Code className="w-8 h-8 text-primary-foreground" />
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:animate-float-medium transition-transform duration-300">
+                <Code className="w-8 h-8 text-primary-foreground group-hover:animate-wiggle" />
               </div>
               <CardTitle className="text-2xl mb-2">Front-End Development</CardTitle>
               <CardDescription className="text-lg">
@@ -59,16 +59,16 @@ const Services = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
-                {frontendSkills.map((skill, index) => (
-                  <div 
-                    key={skill.name} 
-                    className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-accent/10 transition-colors duration-300"
-                    style={{animationDelay: `${index * 0.1}s`}}
-                  >
-                    <skill.icon className="w-5 h-5 text-accent" />
-                    <span className="font-medium">{skill.name}</span>
-                  </div>
-                ))}
+                 {frontendSkills.map((skill, index) => (
+                   <div 
+                     key={skill.name} 
+                     className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-accent/10 fluid-hover fluid-scale group animate-slide-up"
+                     style={{animationDelay: `${(index + 2) * 0.1}s`}}
+                   >
+                     <skill.icon className="w-5 h-5 text-accent group-hover:animate-bounce-subtle" />
+                     <span className="font-medium group-hover:text-accent transition-colors duration-300">{skill.name}</span>
+                   </div>
+                 ))}
               </div>
               <div className="mt-6 pt-6 border-t">
                 <h4 className="font-semibold mb-3 text-accent">Key Features:</h4>
@@ -83,10 +83,10 @@ const Services = () => {
           </Card>
 
           {/* Backend Development */}
-          <Card className="group hover:shadow-glow transition-all duration-500 animate-scale-in border-accent/20" style={{animationDelay: '0.2s'}}>
+          <Card className="group fluid-hover fluid-glow animate-slide-right border-accent/20 interactive-element" style={{animationDelay: '0.2s'}}>
             <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Server className="w-8 h-8 text-primary-foreground" />
+              <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:animate-float-medium transition-transform duration-300">
+                <Server className="w-8 h-8 text-primary-foreground group-hover:animate-wiggle" />
               </div>
               <CardTitle className="text-2xl mb-2">Back-End Development</CardTitle>
               <CardDescription className="text-lg">
@@ -95,16 +95,16 @@ const Services = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
-                {backendSkills.map((skill, index) => (
-                  <div 
-                    key={skill.name} 
-                    className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-accent/10 transition-colors duration-300"
-                    style={{animationDelay: `${index * 0.1}s`}}
-                  >
-                    <skill.icon className="w-5 h-5 text-accent" />
-                    <span className="font-medium">{skill.name}</span>
-                  </div>
-                ))}
+                 {backendSkills.map((skill, index) => (
+                   <div 
+                     key={skill.name} 
+                     className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-accent/10 fluid-hover fluid-scale group animate-slide-up"
+                     style={{animationDelay: `${(index + 2) * 0.1}s`}}
+                   >
+                     <skill.icon className="w-5 h-5 text-accent group-hover:animate-bounce-subtle" />
+                     <span className="font-medium group-hover:text-accent transition-colors duration-300">{skill.name}</span>
+                   </div>
+                 ))}
               </div>
               <div className="mt-6 pt-6 border-t">
                 <h4 className="font-semibold mb-3 text-accent">Key Features:</h4>
@@ -120,10 +120,10 @@ const Services = () => {
         </div>
 
         {/* Mentorship Section */}
-        <Card className="bg-gradient-primary text-primary-foreground animate-scale-in" style={{animationDelay: '0.4s'}}>
+        <Card className="bg-gradient-primary text-primary-foreground animate-zoom-in fluid-hover fluid-scale interactive-element" style={{animationDelay: '0.4s'}}>
           <CardHeader className="text-center">
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <GraduationCap className="w-8 h-8" />
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 hover:animate-heartbeat">
+              <GraduationCap className="w-8 h-8 hover:animate-wiggle" />
             </div>
             <CardTitle className="text-2xl mb-2">Mentorship & Tutoring</CardTitle>
             <CardDescription className="text-primary-foreground/80 text-lg">
